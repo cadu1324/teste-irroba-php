@@ -11,6 +11,7 @@ Antes de iniciar, certifique-se de ter instalado:
 -   MySQL
 -   Node.js e npm (opcional, para compilar assets)
 -   Git
+-   [Postman](https://www.postman.com/) (para testar a API)
 
 ## Instalação
 
@@ -80,6 +81,28 @@ Antes de iniciar, certifique-se de ter instalado:
 2.  **Acesse a API:**
 
     -   A API estará disponível em `http://localhost:8000`.
+
+## Testando a API com Postman
+
+1.  **Importe a collection do Postman:**
+
+    -   Baixe o arquivo `Sistema de Agendamento de Consultas API.postman_collection.json` deste repositório.
+    -   No Postman, clique no botão "Import" e selecione o arquivo JSON.
+
+2.  **Configure as variáveis de ambiente:**
+
+    -   No Postman, crie um ambiente (ou selecione um existente).
+    -   Defina as seguintes variáveis de ambiente:
+        -   `url`: `http://localhost:8000` (ou a URL da sua aplicação)
+        -   `access_token`: (Será obtido após o login)
+        -   `patient_id`: (Utilize um ID de paciente existente)
+        -   `doctor_id`: (Utilize um ID de médico existente)
+        -   `scheduling_id`: (Utilize um ID de agendamento existente)
+
+3.  **Execute as requisições:**
+
+    -   Utilize as requisições na collection para testar as funcionalidades da API.
+    -   Lembre-se de obter o `access_token` através da rota de login antes de executar as outras requisições que exigem autenticação.
 
 ## Rotas da API
 
