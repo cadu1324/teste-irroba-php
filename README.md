@@ -86,8 +86,9 @@ Antes de iniciar, certifique-se de ter instalado:
 
 1.  **Importe a collection do Postman:**
 
-    -   Baixe o arquivo `Sistema de Agendamento de Consultas API.postman_collection.json` deste repositório.
-    -   No Postman, clique no botão "Import" e selecione o arquivo JSON.
+    -   **Baixe a collection do Postman:** [Clique aqui para baixar a collection](link_para_o_arquivo_json)
+        -   **Importante:** Substitua `link_para_o_arquivo_json` pelo link direto para o arquivo `Sistema de Agendamento de Consultas API.postman_collection.json` no seu repositório GitHub. Geralmente, você pode obter esse link clicando no arquivo no GitHub e depois no botão "Raw".
+    -   No Postman, clique no botão "Import" e selecione o arquivo JSON baixado.
 
 2.  **Configure as variáveis de ambiente:**
 
