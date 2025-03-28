@@ -17,7 +17,7 @@ Antes de iniciar, certifique-se de ter instalado:
 1.  **Clone o repositório:**
 
     ```bash
-    git clone [https://github.com/cadu1324/teste-irroba-php.git](https://www.google.com/search?q=https://github.com/cadu1324/teste-irroba-php.git)
+    git clone [https://github.com/cadu1324/teste-irroba-php.git](https://github.com/cadu1324/teste-irroba-php.git)
     cd teste-irroba-php
     ```
 
@@ -27,10 +27,28 @@ Antes de iniciar, certifique-se de ter instalado:
     composer install
     ```
 
-3.  **Configure o arquivo `.env`:**
+3.  **Crie o banco de dados e configure o arquivo `.env`:**
+
+    -   Acesse o MySQL usando um cliente de sua preferência (linha de comando, phpMyAdmin, etc.).
+    -   Execute o seguinte comando SQL para criar o banco de dados:
+
+    ```sql
+    CREATE DATABASE teste_irroba;
+    ```
 
     -   Copie `.env.example` para `.env`: `cp .env.example .env`
-    -   Configure as variáveis de ambiente, especialmente as configurações do banco de dados.
+    -   Edite o arquivo `.env` com as configurações do banco de dados que você acabou de criar:
+
+    ```ini
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=teste_irroba
+    DB_USERNAME=seu_usuario_mysql
+    DB_PASSWORD=sua_senha_mysql
+    ```
+
+    -   Substitua `seu_usuario_mysql` e `sua_senha_mysql` pelas suas credenciais do MySQL.
 
 4.  **Gere a chave da aplicação:**
 
