@@ -15,18 +15,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('register', [UserController::class, 'register']);
 Route::post('login', [UserController::class, 'login']);
 
-// API Rotas
-Route::prefix('api')->group(function () {
 
-    // Protected routes
-    Route::middleware('auth:sanctum')->group(function () {
-        // Routes for Patients
-        Route::apiResource('patients', PatientController::class);
 
-        // Routes for Doctors
-        Route::apiResource('doctors', DoctorController::class);
+// Protected routes
+Route::middleware('auth:sanctum')->group(function () {
 
-        // Routes for Schedulings
-        Route::apiResource('schedulings', SchedulingController::class);
-    });
+    // Routes for Patients
+    Route::apiResource('patients', PatientController::class);
+
+    // Routes for Doctors
+    Route::apiResource('doctors', DoctorController::class);
+
+    // Routes for Schedulings
+    Route::apiResource('schedulings', SchedulingController::class);
 });

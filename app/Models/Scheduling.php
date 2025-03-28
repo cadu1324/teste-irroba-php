@@ -2,14 +2,12 @@
 
 namespace App\Models;
 
-//use Illuminate\Database\Eloquent\Model;
-
-class Scheduling extends BaseModel // Estende BaseModel ou Model
+class Scheduling extends BaseModel
 {
-    protected $table = 'consultas'; // Especifica o nome da tabela
-    protected $primaryKey = 'id'; // Especifica a chave primária
-    public $timestamps = true; 
-    
+    protected $table = 'appointments';
+    protected $primaryKey = 'id';
+    public $timestamps = true;
+
     protected $fillable = [
         'paciente_id',
         'medico_id',
@@ -20,12 +18,12 @@ class Scheduling extends BaseModel // Estende BaseModel ou Model
     // Relacionamento com a tabela de pacientes
     public function patient()
     {
-        return $this->belongsTo(Patient::class, 'paciente_id'); // Especifica a chave estrangeira
+        return $this->belongsTo(Patient::class, 'paciente_id');
     }
 
     // Relacionamento com a tabela de médicos
     public function doctor()
     {
-        return $this->belongsTo(Doctor::class, 'medico_id'); // Especifica a chave estrangeira
+        return $this->belongsTo(Doctor::class, 'medico_id');
     }
 }

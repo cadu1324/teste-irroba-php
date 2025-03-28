@@ -10,8 +10,8 @@ class User extends Authenticatable
 {
     use HasApiTokens, Notifiable;
 
-    protected $table = 'usuarios'; // Especifica o nome da tabela
-    protected $primaryKey = 'id'; // Especifica a chave primária
+    protected $table = 'users';
+    protected $primaryKey = 'id';
     public $timestamps = true;
 
     /**
