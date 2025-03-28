@@ -1,0 +1,578 @@
+{
+	"info": {
+		"_postman_id": "b1b45c41-199f-44a4-ae14-331c3d00531c",
+		"name": "Sistema de Agendamento de Consultas API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16164207",
+		"_collection_link": "https://zucgg-collection.postman.co/workspace/teste-irroba-carlos~b5b909ed-f5ab-49cf-ba96-c44664bc52a5/collection/16164207-b1b45c41-199f-44a4-ae14-331c3d00531c?action=share&source=collection_link&creator=16164207"
+	},
+	"item": [
+		{
+			"name": "login",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Nome do Médico\",\r\n    \"email\": \"email@exemplo.com\",\r\n    \"password\": \"senha123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"email@exemplo.com\",\r\n    \"password\": \"senha123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "patients",
+			"item": [
+				{
+					"name": "Create Patient",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Nome do Paciente\",\n  \"cpf\": \"123.456.789-00\",\n  \"phone\": \"(00) 0000-0000\",\n  \"email\": \"paciente@exemplo.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/patients",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"patients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Patients",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/patients/{{patient_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"patients",
+								"{{patient_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Patient",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/patients/{{patient_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"patients",
+								"{{patient_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Patient",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Novo Nome do Paciente\",\n  \"phone\": \"(00) 0000-0000\",\n  \"email\": \"novo_paciente@exemplo.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/patients/{{patient_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"patients",
+								"{{patient_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Patient",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/patients/{{patient_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"patients",
+								"{{patient_id}}"
+							]
+						},
+						"description": "Remove um paciente específico."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "doctors",
+			"item": [
+				{
+					"name": "List Doctors",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/doctors",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"doctors"
+							]
+						},
+						"description": "Lista todos os médicos."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Doctor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Nome do Médico\",\n  \"specialty\": \"Cardiologia\",\n  \"crm\": \"CRM-12345\",\n  \"phone\": \"(00) 0000-0000\",\n  \"email\": \"medico@exemplo.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/doctors",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"doctors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Doctor",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/doctors/{{doctor_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"doctors",
+								"{{doctor_id}}"
+							]
+						},
+						"description": "Exibe os detalhes de um médico específico."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Doctor",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Novo Nome do Médico\",\n  \"phone\": \"(00) 0000-0000\",\n  \"email\": \"novo_medico@exemplo.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/doctors/{{doctor_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"doctors",
+								"{{doctor_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Doctor",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/doctors/{{doctor_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"doctors",
+								"{{doctor_id}}"
+							]
+						},
+						"description": "Remove um médico específico."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "scheduling",
+			"item": [
+				{
+					"name": "Create Scheduling",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"patient_id\": 1,\n  \"doctor_id\": 1,\n  \"appointment_time\": \"2024-03-15 10:00:00\",\n  \"status\": \"scheduled\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/schedulings",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"schedulings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Schedulings",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/schedulings",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"schedulings"
+							]
+						},
+						"description": "Lista todos os agendamentos do médico logado."
+					},
+					"response": []
+				},
+				{
+					"name": "Show Scheduling",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/schedulings/{{scheduling_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"schedulings",
+								"{{scheduling_id}}"
+							]
+						},
+						"description": "Exibe os detalhes de um agendamento específico."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Scheduling",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"patient_id\": 2,\n  \"doctor_id\": 2,\n  \"appointment_time\": \"2024-03-16 11:00:00\",\n  \"status\": \"performed\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/schedulings/{{scheduling_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"schedulings",
+								"{{scheduling_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Scheduling",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/schedulings/{{scheduling_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"schedulings",
+								"{{scheduling_id}}"
+							]
+						},
+						"description": "Remove um agendamento específico."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/up",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"up"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://127.0.0.1:8000"
+		},
+		{
+			"key": "access_token",
+			"value": "1|mCbsLAibSd1FpUfz8eeS5dgAsZ85XktyQ2VUro7J42de3a11\n"
+		},
+		{
+			"key": "patient_id",
+			"value": "1"
+		},
+		{
+			"key": "doctor_id",
+			"value": "1"
+		},
+		{
+			"key": "scheduling_id",
+			"value": "1"
+		}
+	]
+}
